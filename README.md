@@ -3,6 +3,8 @@
 一个功能强大的AI语音处理平台，集成了文字转语音(TTS)和语音转文字(STT)双向功能。基于Microsoft Edge TTS和硅基流动API，支持20+种语音选项，为用户提供完整的语音处理解决方案。
 >
 > 直接使用: https://edgetts.081011.xyz/
+>原仓地：址https://github.com/wangwangit/tts
+>基于wangwangit一只会飞的旺旺的ttstts修改
 
 <img width="2512" height="1284" alt="image" src="dome.png" />
 
@@ -344,14 +346,7 @@ MIT License
 - **Cloudflare Workers** - 提供无服务器计算平台
 - **开源社区** - 感谢所有贡献者和用户的支持
 
-## 📞 联系我们
 
-关注公众号「一只会飞的旺旺」获取更多 AI 工具和技术分享：
-
-- 🔥 最新 AI 工具推荐和使用教程
-- 🚀 前沿技术解析和实战案例  
-- 💎 独家资源和工具源码分享
-- 💬 技术问题答疑和交流社群
 
 ---
 
