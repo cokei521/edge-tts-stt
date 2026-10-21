@@ -4,7 +4,7 @@
 >
 > 直接使用: https://tts.wangwangit.com
 
-<img width="2512" height="1284" alt="image" src="https://github.com/user-attachments/assets/570961ef-b189-480f-833e-7877ce38f19d" />
+<img width="2512" height="1284" alt="image" src="dome.png" />
 
 
 ## ✨ 特性
