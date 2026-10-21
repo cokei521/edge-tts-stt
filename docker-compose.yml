@@ -1,0 +1,37 @@
+services:
+  voicecraft:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: voicecraft:latest
+    container_name: voicecraft
+    restart: unless-stopped
+    ports:
+      # 宿主机端口 : 容器端口；改成 "80:8080" 可直接用 80 访问
+      - "8080:8080"
+    environment:
+      PORT: "8080"
+      HOST: "0.0.0.0"
+      # 语音转录（STT）使用的硅基流动 Token，留空则使用代码内置默认值
+      # 建议改用 .env 文件注入，不要把真实密钥提交进版本库
+      SILICONFLOW_TOKEN: ${SILICONFLOW_TOKEN:-}
+      SILICONFLOW_MODEL: ${SILICONFLOW_MODEL:-FunAudioLLM/SenseVoiceSmall}
+      SILICONFLOW_API_URL: ${SILICONFLOW_API_URL:-https://api.siliconflow.cn/v1/audio/transcriptions}
+      # 长文本合成上限（容器环境不受 Workers 子请求数限制，可调大）
+      MAX_CHUNKS: ${MAX_CHUNKS:-80}
+      MAX_TEXT_LENGTH: ${MAX_TEXT_LENGTH:-10000}
+      # 单次请求体上限（转录音频最大 10MB，multipart 编码后更大）
+      MAX_BODY_BYTES: ${MAX_BODY_BYTES:-20971520}
+    # 若上游 TTS/STT 接口需要走代理，取消注释并填写
+    # network_mode: bridge
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8080/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

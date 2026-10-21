@@ -1,0 +1,24 @@
+{
+  "name": "voicecraft-tts",
+  "version": "2.1.0",
+  "description": "VoiceCraft - AI 语音处理平台（文字转语音 / 语音转文字），支持 Cloudflare Workers 与 Docker 两种部署方式",
+  "type": "module",
+  "main": "server.mjs",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node --watch server.mjs",
+    "deploy:workers": "wrangler deploy"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "keywords": [
+    "tts",
+    "stt",
+    "edge-tts",
+    "voice",
+    "docker"
+  ],
+  "license": "MIT",
+  "dependencies": {}
+}
